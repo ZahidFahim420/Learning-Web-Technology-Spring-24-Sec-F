@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">Fahim</h1>
+    <input type="button" id="submit" name="submit" value="submit" onclick="change()">
+
+    <input type="text" id="username" name="username" value="" placeholder="User name" onkeyup="change()" >
+
+    <p id="error"></p>
+
+    <script>
+        let cng = document.getElementById("head");
+
+        function change(){
+            let username = document.getElementById('username');
+            let userN = username.value ;
+            //cng.innerHTML ="Zahid";
+            cng.innerHTML = userN;
+             if(userN == ""){
+
+
+             }else{
+
+             }
+
+
+        }
+
+        // function change1(){
+        //     let userN = username.value;
+        //     cng.innerHTML = userN;
+        // }
+        
+
+    </script>
+
+    
+</body>
+</html>

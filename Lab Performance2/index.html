@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Validation</title>
+    
+</head>
+<body>
+    <H3>Name</H3>
+    <input type="text" id="name" name="name" value="" placeholder="Enter your name">
+    <br>
+    <input type="button" id="button" name="button" value="submit" onclick="validate()">
+    <br>
+    <p id="error"></p>
+
+    <script>
+        let username = document.getElementById('name').value;
+
+        // let pattern=/^[a-zA-Z][a-zA-Z.-]*\s+[a-zA-Z][a-zA-Z.-]*$/;
+        function validate(){
+            let name = document.getElementById('name');
+            let error = document.getElementById('error');
+            if(username =""){
+                error.innerHTML = "Please Fill your Name!?"
+                error.style.color = 'red';
+            }else if(username.charAt(0)!= /a-zA-Z/g ){
+
+                error.innerHTML = "Please Fill your Name!? \n start with later";
+
+            }else{
+                 document.getElementById('name').value = username;
+                 error.innerHTML = "";
+            }
+
+        }
+       
+    </script>
+
+</body>
+</html>
