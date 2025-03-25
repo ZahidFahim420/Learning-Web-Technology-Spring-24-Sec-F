@@ -8,30 +8,45 @@
 </head>
 <body>
     <H3>Name</H3>
-    <input type="text" id="name" name="name" value="" placeholder="Enter your name">
+    <input type="text" id="name" name="name" value="" placeholder="Enter your name" onkeyup="validate()">
     <br>
     <input type="button" id="button" name="button" value="submit" onclick="validate()">
     <br>
-    <p id="error"></p>
+    <p id="error" style="color: red;"></p>
 
     <script>
-        let username = document.getElementById('name').value;
-
         // let pattern=/^[a-zA-Z][a-zA-Z.-]*\s+[a-zA-Z][a-zA-Z.-]*$/;
         function validate(){
+            let username = document.getElementById('name').value;
             let name = document.getElementById('name');
-            let error = document.getElementById('error');
-            if(username =""){
-                error.innerHTML = "Please Fill your Name!?"
-                error.style.color = 'red';
-            }else if(username.charAt(0)!= /a-zA-Z/g ){
+            let error = document.getElementById("error");
+            let words = username.trim().split(" ");
 
-                error.innerHTML = "Please Fill your Name!? \n start with later";
+            let firstChar = username.trim()[0];
 
-            }else{
-                 document.getElementById('name').value = username;
-                 error.innerHTML = "";
+            
+
+            if (!((firstChar >= 'a' && firstChar <= 'z') || (firstChar >= 'A' && firstChar <= 'Z'))) {
+                error.innerText = "Name must start with a letter!";
+                return false;
             }
+            for (let char of username) {
+                 if (!((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || char == '.' || char == '-' || char == ' ')) {
+                    error.innerText = "INVALID CHARACTER!";
+                    return false;
+                    }
+            }
+
+            if(words.length < 2 || username == "") {
+                error.innerText = "Please Fill your Name!? \n Or it is less then two words!";
+                return false;
+            
+            }else {
+                document.getElementById('name').value = username;
+                error.innerHTML = "";
+                return true;
+            }
+            
 
         }
        
