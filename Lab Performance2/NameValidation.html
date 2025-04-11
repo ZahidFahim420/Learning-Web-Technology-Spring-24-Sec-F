@@ -20,13 +20,16 @@
             let username = document.getElementById('name').value;
             let name = document.getElementById('name');
             let error = document.getElementById("error");
+
             let words = username.trim().split(" ");
 
             let firstChar = username.trim()[0];
 
             
-
-            if (!((firstChar >= 'a' && firstChar <= 'z') || (firstChar >= 'A' && firstChar <= 'Z'))) {
+            if(username == ""){
+                error.innerHTML = "Empty!";
+            }
+            else if(!((firstChar >= 'a' && firstChar <= 'z') || (firstChar >= 'A' && firstChar <= 'Z'))) {
                 error.innerText = "Name must start with a letter!";
                 return false;
             }
@@ -43,7 +46,7 @@
             
             }else {
                 document.getElementById('name').value = username;
-                error.innerHTML = "";
+                 error.innerHTML = "";
                 return true;
             }
             

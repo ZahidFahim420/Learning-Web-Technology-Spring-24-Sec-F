@@ -14,7 +14,36 @@
     </fieldset>
 
     <br>
-    <input type="button" value="Submit" name="button" id="btn">
+    <input type="button" value="Submit" name="button" id="btn" onclick="validateGender()">
+    <br>
+    <p id="error" style="color: red;"></p>
+
+    <script>
+    function validateGender() {
+        let genders = document.getElementsByName('gender');
+        let error = document.getElementById('error');
+
+        let selected = false;
+
+        for (let gender of genders) {
+            if (gender.checked) {
+                selected = true;
+                break;
+            }
+        }
+        
+        if (!selected) {
+            error.innerText = "Please select your gender!";
+            return false;
+        } else {
+            error.innerText = "";
+            return true;
+        }
+    }
+
+
+
+    </script>
     
 </body>
 </html>
