@@ -20,7 +20,7 @@
             let email = document.getElementById('email').value.trim();
             let error = document.getElementById('error');
             // Check Empty
-              if (email === "") {
+              if(email === ""){
                 error.innerText = "Email cannot be empty!";
                 return false;
             }
@@ -32,19 +32,19 @@
 
             // Check if @ exists and only once
             // Array.indexOf() returns -1 if the item is not found.
-              if (atPos <= 0 || email.indexOf('@', atPos + 1) != -1) {
+              if(atPos <= 0 || email.indexOf('@', atPos + 1) != -1){
                 error.innerText = "Invalid Email: '@' is missing or repeated!";
                 return false;
             }
 
             // Check if . exists after @
-              if (dotPos < atPos + 2) {
+              if(dotPos < atPos + 2){
                 error.innerText = "Invalid Email: '.' should be after '@'!";
                 return false;
             }
 
             // Check if . is not at the end
-              if (dotPos === email.length - 1) {
+              if(dotPos === email.length - 1){
                 error.innerText = "Invalid Email: '.' cannot be at the end!";
                 return false;
             }

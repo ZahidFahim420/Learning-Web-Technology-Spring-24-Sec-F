@@ -29,26 +29,27 @@
             if(username == ""){
                 error.innerHTML = "Empty!";
             }
-            else if(!((firstChar >= 'a' && firstChar <= 'z') || (firstChar >= 'A' && firstChar <= 'Z'))) {
+            else if(!((firstChar >= 'a' && firstChar <= 'z') || (firstChar >= 'A' && firstChar <= 'Z'))){
                 error.innerText = "Name must start with a letter!";
                 return false;
             }
-            for (let char of username) {
+            for(let char of username){
                  if (!((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || char == '.' || char == '-' || char == ' ')) {
                     error.innerText = "INVALID CHARACTER!";
                     return false;
                     }
             }
 
-            if(words.length < 2 || username == "") {
+            if(words.length < 2 || username == ""){
                 error.innerText = "Please Fill your Name!? \n Or it is less then two words!";
                 return false;
             
-            }else {
+            }else{
                 document.getElementById('name').value = username;
                  error.innerHTML = "";
                 return true;
             }
+            
             
 
         }
