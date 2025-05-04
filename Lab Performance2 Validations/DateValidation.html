@@ -8,8 +8,47 @@
 <body>
     <fieldset>
         <legend>Date OF Birth</legend>
-       <input type="date" name="date" id="date">
+       <input type="date" name="date" id="date" value="">
+       <br>
+       <input type="button" value="Submit" name="btn" id="btn" onclick="validateDate()">
     </fieldset> <br>
-    <input type="button" value="Submit" name="btn" id="btn">
+    <p id="error" style="color: red;"></p>
+
+
+    <script>
+        function validateDate(){
+
+            var dateinput = document.getElementById("date");
+            var error = document.getElementById("error");
+            if(!dateinput.value){
+                error.innerText = "Can't be Empty!"
+                 return false;
+
+            }
+
+//             input is a string from the <input type="date">, typically formatted as "yyyy-mm-dd", e.g., "2001-07-15".
+
+//              new Date(input) creates a JavaScript Date object using that string.
+
+//              This Date object allows you to access parts of the date (year, month, day) using built-in methods.
+            const d = new Date(dateinput.value);
+            var year = d.getFullYear();
+            // const day = date.getDate();
+            // const month = date.getMonth();
+            if(year > 2000 && year >2025){
+                error.innerText ="Must be between 2000 to 2025!"
+                return false;
+            }else{
+                error.innerText ="valid";
+                error.style.color ="red";
+                return true;
+            }
+
+
+        }
+        
+
+    </script>
+    
 </body>
 </html>

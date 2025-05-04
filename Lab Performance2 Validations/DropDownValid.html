@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>validateDropdown</title>
 </head>
 <body>
     <h2>Blood Group</h2>
     <select name="BloodGroup" id="BloodGroup">
+        <option value="Click Here">Click Here</option>
         <option value="A+">A+</option>
         <option value="B+">B+</option>
         <option value="AB+">AB+</option>
@@ -15,5 +16,27 @@
         <option value="O+">O+</option>
         <option value="O-">O-</option>
     </select>
+    <input type="submit" value="submit" name="submit" onclick="validateDropdown()">
+    <br>
+    <p id="error" value="" style="color: red;"></p>
+
+
+    <script>
+        function validateDropdown(){
+            const selection = document.getElementById("BloodGroup").value;
+            var error = document.getElementById("error");
+            if(selection == "ClickHere"){
+                
+                // alert("Must choose one!")
+                error.innerText = "select atleast one!"
+                // return;
+            }else{
+                error.innerText ="";
+            }
+
+
+        }
+
+    </script>
 </body>
 </html>
